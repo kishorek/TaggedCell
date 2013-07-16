@@ -21,7 +21,11 @@
 @property(nonatomic, strong) NSArray *tags;
 /** Selected tags */
 @property(nonatomic, strong) NSMutableArray *selectedTags;
+@property(nonatomic,strong) UIColor *defaultColor;
+@property(nonatomic, strong) UIColor *highlightedColor;
+
 @property(nonatomic, weak) id<TaggedCellProtocol> delegate;
+
 
 +(int) heightForTags:(NSArray *) tags;
 

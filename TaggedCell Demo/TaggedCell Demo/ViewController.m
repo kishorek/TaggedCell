@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "TaggedCell.h"
 
-@interface ViewController ()
+@interface ViewController()<TaggedCellProtocol>
 @property(nonatomic, strong) NSArray *tags1;
 @end
 
@@ -45,6 +45,8 @@
     TaggedCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[TaggedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell.highlightedColor = [UIColor colorWithRed:0.000 green:0.463 blue:0.000 alpha:1.000];
+        cell.delegate = self;
     }
     cell.tags = self.tags1;
     return cell;
@@ -52,6 +54,12 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [TaggedCell heightForTags:self.tags1];
+}
+
+#pragma mark - TaggedCell protocol
+-(void)tagTapped:(NSString *)tag{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TaggedCell" message:[NSString stringWithFormat:@"You have tapped \"%@\"",tag] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

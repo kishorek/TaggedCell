@@ -129,12 +129,12 @@
 }
 
 -(void) setTagButtonSelected:(UIButton *) tagButton{
-    tagButton.backgroundColor = [UIColor purpleColor];
+    tagButton.backgroundColor = self.highlightedColor?self.highlightedColor:[UIColor purpleColor];
     [tagButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 -(void) setTagButtonUnSelected:(UIButton *) tagButton{
-    tagButton.backgroundColor = [UIColor whiteColor];
+    tagButton.backgroundColor = self.defaultColor?self.defaultColor:[UIColor whiteColor];
     [tagButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
 }
 
