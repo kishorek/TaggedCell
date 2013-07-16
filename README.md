@@ -1,3 +1,4 @@
 TaggedCell
 ==========
-Work in progress.
+
+![Screenshot](https://raw.github.com/kishorek/TaggedCell/master/screenshot.png)
